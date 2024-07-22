@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 // import { useNavigate } from 'react-router-dom';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { login } from '../../../api/user';
 import { setAuthToken } from '@/lib/utils/user';
 import { authService } from '@/lib/firebase';
@@ -14,6 +15,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FormField from '../molecules/FormField';
 import Button from '../atoms/Button';
+
 
 const schema = yup.object().shape({
     id: yup.string().email('Invalid email address').required('Email is required'),
@@ -93,6 +95,11 @@ const LoginForm = () => {
                     // <input type='password' name='pw' required
                 />
                 <Button type='submit'>LOG IN</Button>
+                <NavContainer>
+                    <NavSignUp href="/signup">
+                        <SignupText>Sign Up</SignupText>
+                    </NavSignUp>
+                </NavContainer>
             </Form>
             <ToastContainer />
         </>
@@ -110,7 +117,8 @@ export default LoginForm;
 // `;
 
 const Form = styled.form`
-    width: 80vh;
+    width: 80vh; // TODO: 반응형
+    // width: 100%;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -121,3 +129,25 @@ const Form = styled.form`
     justify-content: center;
     align-items: center;
 `;
+
+const NavContainer = styled.div`
+    width: 100%;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: right;
+`;
+
+const NavSignUp = styled(Link)`
+    text-decoration: none;
+`;
+
+const SignupText = styled.div`
+    color: red;
+    opacity: 50%;
+    text-decoration: none;
+
+    &:hover {
+        opacity: 100%;
+        text-decoration: underline;
+    }
+`

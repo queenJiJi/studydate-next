@@ -1,19 +1,23 @@
 'use client';
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Button from '../profile/atoms/Button';
+// TODO: login시 profilecard- login 안했을 시 home
 
 const Header = () => {
+
+    
     return (
         <HeaderContainer>
             <Logo onClick={()=>window.location.reload()}>StudyDate</Logo>
             <Nav>
-                <NavItem href="/">Home</NavItem>
+                <NavItem href="/">Home</NavItem>  
                 <NavItem href="/login">Login</NavItem>
-                <NavItem href="/signup">Sign Up</NavItem>
+                {/* <NavItem href="/signup">Sign Up</NavItem> */}
                 <NavItem href="/mainprofile">Profile</NavItem>
+                <NavItem href="/mainprofile">MyProfile</NavItem>
             </Nav>
         </HeaderContainer>
     );

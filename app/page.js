@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 
 const Home = () => {
   // const navigate = useNavigate();
+  
   const router = useRouter();
 
   return (
@@ -38,7 +39,7 @@ const Wrapper = styled.div`
   position: relative;
   background-image: url(${backgroundImg.src});
   background-repeat: no-repeat;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-size: cover;
 

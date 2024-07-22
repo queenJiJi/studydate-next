@@ -2,18 +2,28 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../atoms/Button';
+import LeftIcon from '@/assets/left_arrow.svg';
+import RightIcon from '@/assets/right_arrow.svg';
 
 const ProfileFlipCard = ({front, back}) => {
     const [isFlip, setIsFlip] = useState(false);
 
     return (
         <CardContainer>
+            <ButtonContainer>
+                <ArrowButton 
+                    type='button'
+                    onClick={()=>{setIsFlip(!isFlip)}}
+                >
+                    {isFlip? <StyledLeftIcon /> : <StyledRightIcon /> }
+                </ArrowButton>
+            </ButtonContainer>
             <Card $isFlipped={isFlip}>
                 <CardFront>{front}</CardFront>
                 <CardBack>{back}</CardBack>
             </Card>
-            <Button onClick={()=>{setIsFlip(!isFlip)}}>
-                {isFlip? 'Back' : 'View More'}
+            <Button onClick={()=>console.log('success')}>
+                Say Hi 👋
             </Button>
         </CardContainer>
     );
@@ -26,9 +36,37 @@ const CardContainer = styled.div`
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 `;
 
+const ButtonContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    background-color: white;
+    padding: 5px 18px;
+    position: relative;
+    top: 20px;
+    z-index: 2;
+`;
+
+const ArrowButton = styled.button`
+    background: none;
+    border: none;
+    padding: 0px 0px;
+    cursor: pointer;
+`;
+
+const StyledLeftIcon = styled(LeftIcon)`
+    width: 20px;
+    height: 20px;
+`;
+
+const StyledRightIcon = styled(RightIcon)`
+    width: 20px;
+    height: 20px;
+`;  
+
 const Card = styled.div`
     width: 40vh;
-    height: 45vh;
+    height: 42vh;
  
     transition: transform 0.6s;
     transform-style: preserve-3d;
@@ -44,6 +82,7 @@ const CardFace = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 20px 20px;
     border-radius: 15px;
     outline: none;

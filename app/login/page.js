@@ -23,6 +23,7 @@ const LoginWrapper = styled.div`
     align-items: center;
     height: 100vh;
     background-color: #f8f9fa;
+    // padding: 0px 100px;
 `;
 
 const Title = styled.h1`

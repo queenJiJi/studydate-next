@@ -22,7 +22,7 @@ const FooterContainer = styled.footer`
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: #333;
+    background-color: black;
     color: #fff;
 `;
 
