@@ -19,6 +19,7 @@
     "react-hook-form": "^7.52.1",
     "react-toastify": "^10.0.5",
     "styled-components": "^6.1.11",
+    "sweetalert2": "^11.12.3",
     "yup": "^1.4.0"
   },
   "devDependencies": {

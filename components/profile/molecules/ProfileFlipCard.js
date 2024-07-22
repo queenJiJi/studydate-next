@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Button from '../atoms/Button';
 import LeftIcon from '@/assets/left_arrow.svg';
 import RightIcon from '@/assets/right_arrow.svg';
+import Swal from 'sweetalert2';
 
 const ProfileFlipCard = ({front, back}) => {
     const [isFlip, setIsFlip] = useState(false);
@@ -22,7 +23,13 @@ const ProfileFlipCard = ({front, back}) => {
                 <CardFront>{front}</CardFront>
                 <CardBack>{back}</CardBack>
             </Card>
-            <Button onClick={()=>console.log('success')}>
+            <Button onClick={()=>
+                Swal.fire({
+                    icon: "success",
+                    title: "Good Job!",
+                    text: "You will get a message from him soon!"
+                  })
+            }>
                 Say Hi 👋
             </Button>
         </CardContainer>
