@@ -1,0 +1,222 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "dream": "Software Engineer",
+        "intro": "A passionate coder",
+        "grade": "Sophomore",
+        "subjects": ["Math", "Computer Science"],
+        "concerns": "Balancing projects and studies",
+        "idealType": "Someone who loves technology",
+        "image": "/images/1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "dream": "Data Scientist",
+        "intro": "Loves numbers and data",
+        "grade": "Junior",
+        "subjects": ["Statistics", "Machine Learning"],
+        "concerns": "Keeping up with new trends",
+        "idealType": "Analytical and thoughtful",
+        "image": "/images/2.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Alice Johnson",
+        "dream": "Product Manager",
+        "intro": "Organizer and planner",
+        "grade": "Senior",
+        "subjects": ["Business", "Marketing"],
+        "concerns": "Managing team dynamics",
+        "idealType": "Leader with vision",
+        "image": "/images/3.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Bob Brown",
+        "dream": "Graphic Designer",
+        "intro": "Creative and artistic",
+        "grade": "Freshman",
+        "subjects": ["Art", "Design"],
+        "concerns": "Finding inspiration",
+        "idealType": "Creative partner",
+        "image": "/images/4.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Charlie Davis",
+        "dream": "UX Designer",
+        "intro": "User experience enthusiast",
+        "grade": "Sophomore",
+        "subjects": ["Psychology", "Design"],
+        "concerns": "Improving user interactions",
+        "idealType": "Empathetic and insightful",
+        "image": "/images/5.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Dana Lee",
+        "dream": "Biomedical Engineer",
+        "intro": "Combining medicine and tech",
+        "grade": "Junior",
+        "subjects": ["Biology", "Engineering"],
+        "concerns": "Bridging the gap between disciplines",
+        "idealType": "Innovative thinker",
+        "image": "/images/6.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Evan Martinez",
+        "dream": "Entrepreneur",
+        "intro": "Aspiring business owner",
+        "grade": "Senior",
+        "subjects": ["Business", "Economics"],
+        "concerns": "Starting and scaling a business",
+        "idealType": "Ambitious and driven",
+        "image": "/images/7.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Fiona White",
+        "dream": "Chemist",
+        "intro": "Loves experiments",
+        "grade": "Freshman",
+        "subjects": ["Chemistry", "Physics"],
+        "concerns": "Conducting safe experiments",
+        "idealType": "Curious mind",
+        "image": "/images/8.jpg"
+    },
+    {
+        "id": 9,
+        "name": "George Wilson",
+        "dream": "Mechanical Engineer",
+        "intro": "Solves complex problems",
+        "grade": "Sophomore",
+        "subjects": ["Engineering", "Math"],
+        "concerns": "Keeping up with technology",
+        "idealType": "Problem solver",
+        "image": "/images/9.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Hannah Lewis",
+        "dream": "Psychologist",
+        "intro": "Understands people",
+        "grade": "Junior",
+        "subjects": ["Psychology", "Sociology"],
+        "concerns": "Helping others effectively",
+        "idealType": "Empathetic and caring",
+        "image": "/images/10.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Isaac Clark",
+        "dream": "Astronomer",
+        "intro": "Star gazer",
+        "grade": "Senior",
+        "subjects": ["Astronomy", "Physics"],
+        "concerns": "Understanding the universe",
+        "idealType": "Curious and intelligent",
+        "image": "/images/11.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Jasmine Robinson",
+        "dream": "Author",
+        "intro": "Loves storytelling",
+        "grade": "Freshman",
+        "subjects": ["Literature", "Writing"],
+        "concerns": "Finding a unique voice",
+        "idealType": "Creative and thoughtful",
+        "image": "/images/12.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Kevin Walker",
+        "dream": "Historian",
+        "intro": "Interested in the past",
+        "grade": "Sophomore",
+        "subjects": ["History", "Anthropology"],
+        "concerns": "Uncovering accurate histories",
+        "idealType": "Inquisitive mind",
+        "image": "/images/13.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Liam Harris",
+        "dream": "Economist",
+        "intro": "Analyzes economies",
+        "grade": "Junior",
+        "subjects": ["Economics", "Finance"],
+        "concerns": "Predicting market trends",
+        "idealType": "Analytical thinker",
+        "image": "/images/14.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Mia Campbell",
+        "dream": "Teacher",
+        "intro": "Loves educating others",
+        "grade": "Senior",
+        "subjects": ["Education", "Psychology"],
+        "concerns": "Engaging students effectively",
+        "idealType": "Patient and understanding",
+        "image": "/images/15.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Nathan Scott",
+        "dream": "Architect",
+        "intro": "Designs buildings",
+        "grade": "Freshman",
+        "subjects": ["Architecture", "Art"],
+        "concerns": "Creating sustainable designs",
+        "idealType": "Creative and practical",
+        "image": "/images/16.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Olivia Young",
+        "dream": "Chef",
+        "intro": "Loves cooking",
+        "grade": "Sophomore",
+        "subjects": ["Culinary Arts", "Nutrition"],
+        "concerns": "Perfecting recipes",
+        "idealType": "Passionate about food",
+        "image": "/images/17.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Paul Martinez",
+        "dream": "Photographer",
+        "intro": "Captures moments",
+        "grade": "Junior",
+        "subjects": ["Photography", "Art"],
+        "concerns": "Finding the perfect shot",
+        "idealType": "Creative eye",
+        "image": "/images/18.jpg"
+    },
+    {
+        "id": 19,
+        "name": "Quinn Baker",
+        "dream": "Journalist",
+        "intro": "Seeks the truth",
+        "grade": "Senior",
+        "subjects": ["Journalism", "English"],
+        "concerns": "Reporting accurately",
+        "idealType": "Truth-seeker",
+        "image": "/images/19.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Rachel Adams",
+        "dream": "Musician",
+        "intro": "Lives for music",
+        "grade": "Freshman",
+        "subjects": ["Music", "Art"],
+        "concerns": "Finding inspiration",
+        "idealType": "Creative soul",
+        "image": "/images/20.jpg"
+    }
+]
