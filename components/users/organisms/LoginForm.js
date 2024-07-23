@@ -51,7 +51,7 @@ const LoginForm = () => {
             console.log('로그인 성공')
             toast.success('로그인 성공');
             // navigate('/mainprofile');//TODO: (로그인) 성공 시 navigate to something 페이지
-            router.push('/mainprofile');//TODO: (로그인) 성공 시 navigate to something 페이지
+            router.push('/mainprofile');//TODO: sweetalert로 변경해주기
         } catch(error) {
             let errorMessage = '로그인에 실패했습니다.';
             switch (error.code) {

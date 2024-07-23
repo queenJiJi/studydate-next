@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <FooterContainer>
             <FooterContent>
-                <span>&copy; 2024 MyApp. All rights reserved.</span>
+                <span>&copy; 2024 JiJiApp. All rights reserved.</span>
                 <FooterNav>
                     <FooterNavItem>Privacy Policy</FooterNavItem>
                     <FooterNavItem>Terms of Service</FooterNavItem>

@@ -27,7 +27,7 @@ const ProfileFlipCard = ({front, back}) => {
                 Swal.fire({
                     icon: "success",
                     title: "Good Job!",
-                    text: "You will get a message from him soon!"
+                    text: "You'll hear from your friend soon!"
                   })
             }>
                 Say Hi 👋
@@ -90,7 +90,7 @@ const CardFace = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 0px 20px;
     border-radius: 15px;
     outline: none;
 `;
@@ -100,7 +100,8 @@ const CardFront = styled(CardFace)`
 `;
 
 const CardBack = styled(CardFace)`
-    background: #f8f9fa;
+    // background: #f8f9fa;
+    background: #fff;
     transform: rotateY(180deg);
 `;
 
