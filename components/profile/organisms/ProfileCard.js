@@ -18,7 +18,7 @@ const ProfileCard = ({data}) => {
             <BackContent>
                 <BackTitle> ABOUT ME </BackTitle>
                 <Content><strong> Grade: </strong>{data.grade}</Content>
-                <Content><strong> Subjects: </strong> {data.subjects.join(', ')}</Content>
+                <Content><strong> Subjects: </strong> {Array.isArray(data.subjects) ? data.subjects.join(', ') : data.subjects}</Content>
                 <Content><strong> Concerns: </strong>{data.concerns}</Content>
                 <Content><strong> Ideal Type: </strong>{data.idealType}</Content>
             </BackContent>
