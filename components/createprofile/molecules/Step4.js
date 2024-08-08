@@ -22,9 +22,9 @@ const Step4 = ({prevStep, nextStep, handleChange, data}) => {
         }
     };
 
-    useEffect(()=>{
-        console.log(imageURL)
-    },[imageURL])
+    // useEffect(()=>{
+    //     console.log(imageURL)
+    // },[imageURL])
 
     return (
         <StepContainer>

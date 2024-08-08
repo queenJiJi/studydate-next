@@ -22,6 +22,7 @@ const Header = () => {
                 {/* <NavItem href="/signup">Sign Up</NavItem> */}
                 <NavItem href="/mainprofile">Profile</NavItem>
                 <NavItem href="/registerprofile">MyProfile</NavItem>
+                <NavItem href='matching'>Matching</NavItem>
             </Nav>
         </HeaderContainer>
     );

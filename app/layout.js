@@ -1,3 +1,4 @@
+
 // import { Inter } from "next/font/google";
 // import StyledComponentsRegistry from '@/lib/registry';
 // import "./globals.css";
@@ -23,6 +24,7 @@
 //   );
 // }
 // app/layout.js
+
 import StyledComponentsRegistry from '@/lib/registry';
 import "./globals.css";
 import Header from "@/components/common/Header";
@@ -37,10 +39,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header>Header</Header>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        <Footer>Footer</Footer>
+       
+          <Header>Header</Header>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <Footer>Footer</Footer>
+
       </body>
     </html>
   );
-}
+};
+
+
