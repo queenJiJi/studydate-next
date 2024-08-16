@@ -17,3 +17,12 @@ export const login = async(id,pw) => {
     // if success, response body에서 {'token' : 'FD(#JSFDSD)} -> 성공했다면 jwt토큰을 발급해줌
     return response.data // 서버 요청에 대한 결과값을 return
 }
+
+export const signup = async(email,firebase_id) => {
+    const response = await apiClient.post('/api/signup',{ // formData 객체형성해서 formdata에 넣어주고 보내줬다면, 여기서는 그냥 바로 객체로 보내줘도 됨
+        email: email, // email(키) 를 가진: 위에서 받은(email 값) 전송 
+        firebase_id: firebase_id
+    })
+
+    return response.data //성공적으로 BE에 요청보냈다면, reponse: 'ok'를 돌려받을것이고, 그 정보가 저장된게 response.data
+}

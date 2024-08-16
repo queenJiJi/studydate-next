@@ -11,6 +11,7 @@ import Button from '../atoms/Button';
 import { authService } from '@/lib/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { setAuthToken } from '@/lib//utils/user';
+import { signup } from '@/api/user';
 
 // 유효성 검사 스키마 정의
 const schema = yup.object().shape({
@@ -51,9 +52,10 @@ const SignUpForm = () => {
         try {
             const data = await createUserWithEmailAndPassword(authService,formData.email, formData.password);
             console.log(data);
-            const requestBody = {
-                id: data.user.uid
-            }// TODO: (회원가입) 성공시 data(회원가입된 user 정보)정보를 우리 데이터베이스(서버)에 저장 
+            // const requestBody = {
+            //     id: data.user.uid
+            // }// TODO: (회원가입) 성공시 data(회원가입된 user 정보)정보를 우리 데이터베이스(서버)에 저장 
+            await signup(formData.email, data.user.uid); //email, firebase_id
             setAuthToken(data.user.accessToken);
             router.push('/mainprofile');//TODO: (회원가입) 성공 시 navigate to main page
         } catch(error) {

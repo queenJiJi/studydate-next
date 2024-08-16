@@ -4,12 +4,13 @@ import apiClient from './base'; // base.js에서 instance로 받아온 것임. �
 export const createProfile = async(data) => {
     const formData = new FormData(); // 새로운 객체 형성
 
-    formData.append('user_id',data.userId);
+    formData.append('user_id',1);  // TODO: 나중에 실제 요청 유저 아이디로 바꾸기
     formData.append('dream', data.dream);
-    formData.append('introduction', data.introduction);
+    formData.append('introduction', data.intro);
     formData.append('grade', data.grade);
-    formData.append('major', data.major);
-    formData.append('ideal_type', data.ideal_type);
+    formData.append('major', data.subjects);
+    formData.append('concern', data.concerns);
+    formData.append('ideal_type', data.idealType);
     formData.append('img', '/img/img.png');
     formData.append('name', data.name);
 
