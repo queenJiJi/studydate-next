@@ -50,7 +50,7 @@ const ButtonContainer = styled.div`
     background-color: white;
     padding: 5px 18px;
     position: relative;
-    top: 20px;
+    top: 15px;
     z-index: 2;
 `;
 

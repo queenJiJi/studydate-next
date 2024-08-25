@@ -6,16 +6,18 @@ import Label from '../atoms/Label';
 import Input from '../atoms/Input';
 import Button from '../atoms/Button';
 
-const Step4 = ({prevStep, nextStep, handleChange, data}) => {
+const Step4 = ({prevStep, nextStep, handleImagePreview, handleChange, data}) => {
     const { idealType, image } = data;
     const [imageURL, setImageURL] = useState(image);
 
     const handleFile = (e) => {
         const file = e.target.files[0];
         if (file) {
+            handleChange('image', file); // 사진 업로드
+
             const reader = new FileReader();
             reader.onloadend = () =>{
-                handleChange('image', reader.result);
+                handleImagePreview(reader.result); // 사진 미리보기 경로 담기
                 setImageURL(reader.result);
             };
             reader.readAsDataURL(file);

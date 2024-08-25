@@ -14,11 +14,13 @@ const ProfileForm = () => {
         dream: '',
         intro: '',
         grade: '',
-        subjects: [],
+        subjects: '',
         concerns: '',
         idealType: '',
         image: ''
     });
+
+    const [imagePreview,setImagePreview] = useState('');
 
     const handleChange = (inputType, value) => {
        setDataForm(
@@ -57,12 +59,14 @@ const ProfileForm = () => {
             return <Step4 
                         prevStep={prevStep} 
                         nextStep={nextStep} 
+                        handleImagePreview={setImagePreview}
                         handleChange={handleChange} 
                         data={dataForm}/>;
         case 5: 
             return <StepFinal 
                         prevStep={prevStep} 
                         handleChange={handleChange} 
+                        imagePreview={imagePreview}
                         data={dataForm}/>;
         default: return <Step1 nextStep={nextStep} handleChange={handleChange} data={dataForm}/>;
     }

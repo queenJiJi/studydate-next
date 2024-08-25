@@ -2,47 +2,56 @@
 
 import React,{useState, useEffect} from 'react';
 import styled from 'styled-components';
-import userprofile from '@/data/users.json';
+// import userprofile from '@/data/users.json';
 import ProfileList from '@/components/profile/organisms/ProfileList';
 import Button from '@/components/profile/atoms/Button';
+import { readProfile } from '@/api/profile';
+import {
+    useQuery,
+    useMutation,
+    useQueryClient,
+    QueryClient,
+    QueryClientProvider,
+} from '@tanstack/react-query';
 
 
 const Profile = () => {
-    const [data, setData] = useState([]);
+    // use query 적용 전
+    // const [data, setData] = useState([]);
     
-    useEffect(()=>{
-        if (userprofile) {
-            setData(userprofile)
-        }
-    },[]); // 페이지 입장 시 데이터 fetching해오기
+    // useEffect(()=>{
+    //     const fetchData = async() => {
+    //         const userprofile = await readProfile(); // readProfile은 비동기함수임 
+    //         if (userprofile) {
+    //             setData(userprofile)
+    //         }
+    //     }
+
+    //     fetchData()
+    // },[]); // 페이지 입장 시 데이터 fetching해오기
+
+    const {data, isPending, isError} = useQuery({
+        queryKey: ['profile'],
+        queryFn: readProfile,
+        staleTime: 1000 * 60 // ms 단위로 - 60초
+    })
+
+    // data fetching시 -> 로딩 처리, 에러 처리 필수
+    if (isPending) {
+        return <div>Loading...</div>
+    }
+
+    if (isError) {
+        return <div>Fetching Error...</div>
+    }
 
     return (
         <>
-            {/* <Title>
-                <StyledButton onClick={()=> window.location.reload()}>FIND MY STUDYDATE</StyledButton>
-            </Title> */}
             <ProfileList data={data} />
         </>
     );
 };
 
-// const Title = styled.div`
-//     width: 100%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-// `
 
-// const StyledButton = styled(Button)`
-//     background-color: white;
-//     color: black;
-//     font-size: 32px;
-//     font-weight: 800;
-//     width: 30%;
-
-//     &:hover {
-//         background-color: white;
-//     }
-// `;
 
 export default Profile;

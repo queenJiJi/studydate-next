@@ -8,8 +8,8 @@ import ProfileFlipCard from '../molecules/ProfileFlipCard';
 const ProfileCard = ({data}) => {
     const frontContent = (
         <>
-            <ProfileImage src={data.image} alt={data.name} />
-            <ProfileInfo name={data.name} dream={data.dream} intro={data.intro} />
+            <ProfileImage src={data.img} alt={data.name} />
+            <ProfileInfo name={data.name} dream={data.dream} intro={data.introduction} />
         </>
     );
 
@@ -18,8 +18,9 @@ const ProfileCard = ({data}) => {
             <BackContent>
                 <BackTitle> ABOUT ME </BackTitle>
                 <Content><strong> Grade: </strong>{data.grade}</Content>
-                <Content><strong> Subjects: </strong> {Array.isArray(data.subjects) ? data.subjects.join(', ') : data.subjects}</Content>
-                <Content><strong> Concerns: </strong>{data.concerns}</Content>
+                <Content><strong> Major: </strong> {data.major}</Content>
+                {/* <Content><strong> Subjects: </strong> {Array.isArray(data.major) ? data.subjects.join(', ') : data.subjects}</Content> */}
+                <Content><strong> Concerns: </strong>{data.concern}</Content>
                 <Content><strong> Ideal Type: </strong>{data.idealType}</Content>
             </BackContent>
         </BackWrapper>

@@ -3,7 +3,6 @@ import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -19,14 +18,15 @@ const theme = {
   },
 };
 
+
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
       </ThemeProvider>
     </>
   );
