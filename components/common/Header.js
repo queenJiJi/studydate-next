@@ -4,7 +4,8 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Button from '../profile/atoms/Button';
-import { getAuthToken } from '@/lib/utils/user';
+import { clearAuthToken, getAuthToken } from '@/lib/utils/user';
+import { useAuth } from '@/store/authStore';
 // import Icon from '@/assets/studydate_logo.png';
 // TODO: login시 profilecard- login 안했을 시 home
 
@@ -16,7 +17,13 @@ const Header = () => {
     //         setIsLogged(true);
     //     }
     // },[]);
+    const isLogged = useAuth((state)=> state.isLogin);
+    const isLogout = useAuth((state)=> state.updateToLogout);
 
+    const logoutHandler= () =>{
+        isLogout(); // 상태변화
+        clearAuthToken(); // 로컬스토리지 비우기
+    }
     return (
         <HeaderContainer>
             <Logo onClick={()=>window.location.reload()}>
@@ -25,8 +32,8 @@ const Header = () => {
             </Logo>
             <Nav>
                 <NavItem href="/">Home</NavItem>  
-                {/* {!isLogged && <NavItem href="/login">Login</NavItem> } */}
-                <NavItem href="/login">Login</NavItem> 
+                {!isLogged ? <NavItem href="/login">Login</NavItem>:<StyledButton onClick={logoutHandler}>Logout</StyledButton> }
+                {/* <NavItem href="/login">Login</NavItem>  */}
                 {/* <NavItem href="/signup">Sign Up</NavItem> */}
                 <NavItem href="/mainprofile">Profile</NavItem>
                 <NavItem href="/registerprofile">MyProfile</NavItem>
@@ -71,6 +78,21 @@ const NavItem = styled(Link)`
     &:hover {
         text-decoration: underline;
     }
+`;
+
+const StyledButton = styled.div`
+    color: white;
+    background-color: black;
+    padding: 0px;
+    margin-left: 20px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover {
+        text-decoration: underline;
+    }
+    
 `;
 
 export default Header;

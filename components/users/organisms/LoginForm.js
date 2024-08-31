@@ -15,6 +15,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FormField from '../molecules/FormField';
 import Button from '../atoms/Button';
+import { useAuth } from '@/store/authStore';
 
 
 const schema = yup.object().shape({
@@ -29,6 +30,7 @@ const LoginForm = () => {
 
     // const navigate = useNavigate();
     const router = useRouter();
+    const updateToLogin = useAuth((state)=> state.updateToLogin);
 
     const onSubmit = async(formData) =>{
         // console.log(formData);
@@ -46,11 +48,11 @@ const LoginForm = () => {
         try {
             await setPersistence(authService, browserLocalPersistence);
             const data = await signInWithEmailAndPassword(authService,formData.id, formData.password);
-            console.log(data);
+            
             setAuthToken(data.user.accessToken);
-            console.log('로그인 성공')
+       
             toast.success('로그인 성공');
-            // navigate('/mainprofile');//TODO: (로그인) 성공 시 navigate to something 페이지
+            updateToLogin({email:data.user.email, firebaseId: data.user.uid}); // 로그인 상태 변경
             router.push('/mainprofile');//TODO: sweetalert로 변경해주기
         } catch(error) {
             let errorMessage = '로그인에 실패했습니다.';

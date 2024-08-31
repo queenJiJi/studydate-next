@@ -30,6 +30,7 @@ import "./globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import ReactQueryProvider from '@/components/common/ReactQueryProvider';
+import AuthLayout from '@/components/common/AuthLayout';
 
 export const metadata = {
   title: "Create Next App",
@@ -42,9 +43,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ReactQueryProvider>
-          <Header>Header</Header>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-          <Footer>Footer</Footer>
+          <AuthLayout>
+            <Header>Header</Header>
+            <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+            <Footer>Footer</Footer>
+          </AuthLayout>
         </ReactQueryProvider>
       </body>
     </html>

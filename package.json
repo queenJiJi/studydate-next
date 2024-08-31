@@ -17,6 +17,7 @@
     "axios": "^1.7.2",
     "firebase": "^10.12.3",
     "firebase-admin": "^12.3.1",
+    "jwt-decode": "^4.0.0",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
@@ -25,7 +26,8 @@
     "styled-components": "^6.1.11",
     "sweetalert2": "^11.12.3",
     "uuid": "^10.0.0",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^2.1.4",
