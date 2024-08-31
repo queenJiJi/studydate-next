@@ -17,8 +17,11 @@ const MatchingStats = () => {
 const OuterContainer = styled.div`
     width: 100%;
     height: 100%;
+    min-height: 960px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px 50px;
-
 `;
 
 const Title = styled.div`
@@ -26,14 +29,13 @@ const Title = styled.div`
     height: 40px;
     padding-top: 50px;
     padding-bottom: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: black;
     font-size: 30px;
     font-weight: 800;
-
 `;
 
 

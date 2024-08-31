@@ -1,11 +1,14 @@
 'use client';
 
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ProfileCard from '@/components/profile/organisms/ProfileCard';
 import ProfileForm from '@/components/createprofile/organisms/ProfileForm';
 import { useQuery } from '@tanstack/react-query';
 import { readMyProfile } from '@/api/profile';
+import { tada } from 'react-animations';
+
+const tadaAnimation = keyframes`${tada}`;
 
 const Page = () => {
     // 비구조화하면 해당 변수 이름 변경할 수 있음 ex. isError:hasMyProfile
@@ -17,8 +20,8 @@ const Page = () => {
         }
     );
 
-    console.log(data)
-    console.log(isError)
+    // console.log(data)
+    // console.log(isError)
 
     if(isPending) return <div>Loading...</div>
 
@@ -28,8 +31,10 @@ const Page = () => {
     return ( 
         <>
             {
-                hasMyProfile? (
-                    <ProfileCard data={data} />):(<FormContainer>
+                hasMyProfile? ( <MyProfileContainer>
+                        <MyProfileTitle>👻 MY PROFILE 👻</MyProfileTitle>
+                        <ProfileCard data={data} /> 
+                    </MyProfileContainer>):(<FormContainer>
                         <ProfileForm />
                     </FormContainer>  
                 ) 
@@ -37,6 +42,23 @@ const Page = () => {
         </>
     );
 };
+
+
+const MyProfileContainer = styled.div`
+    width: 100%;
+    min-height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: 1.5s ${tadaAnimation};
+`;
+
+const MyProfileTitle = styled.div`
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+`;
 
 const FormContainer = styled.div`
     display: flex;

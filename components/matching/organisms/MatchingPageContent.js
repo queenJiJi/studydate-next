@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import Tabs from '../molecules/Tabs';
 import FriendRequestList from '../molecules/FriendRequestList';
+import styled from 'styled-components';
 
 
 const MatchingPageContent = () => {
@@ -22,11 +23,15 @@ const MatchingPageContent = () => {
     };
 
     return (
-        <div>
+        <Container>
             <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
             <FriendRequestList requests={friendRequests[activeTab]} />
-        </div>
+        </Container>
     );
 };
 
+const Container = styled.div`
+    width: 100%;
+    max-width: 860px;
+`
 export default MatchingPageContent;

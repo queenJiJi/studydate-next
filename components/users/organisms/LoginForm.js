@@ -11,11 +11,13 @@ import { login } from '../../../api/user';
 import { setAuthToken } from '@/lib/utils/user';
 import { authService } from '@/lib/firebase';
 import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from 'firebase/auth';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 import FormField from '../molecules/FormField';
 import Button from '../atoms/Button';
 import { useAuth } from '@/store/authStore';
+
+import Swal from 'sweetalert2';
 
 
 const schema = yup.object().shape({
@@ -51,28 +53,37 @@ const LoginForm = () => {
             
             setAuthToken(data.user.accessToken);
        
-            toast.success('로그인 성공');
+            Swal.fire({
+                icon: "success",
+                title: "You're Logged In!",
+              })
             updateToLogin({email:data.user.email, firebaseId: data.user.uid}); // 로그인 상태 변경
-            router.push('/mainprofile');//TODO: sweetalert로 변경해주기
+            router.push('/mainprofile');
         } catch(error) {
-            let errorMessage = '로그인에 실패했습니다.';
+            let errorMessage = 'Login failed.';
             switch (error.code) {
                 case 'auth/invalid-email':
-                    errorMessage = '이메일 혹은 비밀번호가 잘못되었습니다.';
+                    errorMessage = 'The email or password is incorrect.';
                     break;
                 case 'auth/user-disabled':
-                    errorMessage = '사용이 중지된 계정입니다.';
+                    errorMessage = 'This account has been disabled.';
                     break;
                 case 'auth/user-not-found':
-                    errorMessage = '해당 이메일로 가입된 사용자를 찾을 수 없습니다.';
+                    errorMessage = 'No user found with this email address.';
                     break;
                 case 'auth/invalid-credential':
-                    errorMessage = '이메일 혹은 비밀번호가 잘못되었습니다.';
+                    errorMessage = 'The email or password is incorrect.';
                     break;
                 default:
-                    errorMessage = '알 수 없는 오류가 발생했습니다.';
+                    errorMessage = 'An unknown error occurred.';
             }
-            toast.error(errorMessage);
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: errorMessage,
+            });
+
             console.error('Error signing in', error);
         }
     };
@@ -103,7 +114,7 @@ const LoginForm = () => {
                     </NavSignUp>
                 </NavContainer>
             </Form>
-            <ToastContainer />
+            {/* <ToastContainer /> */}
         </>
     );
 };
