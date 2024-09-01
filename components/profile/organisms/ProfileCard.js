@@ -30,6 +30,7 @@ const ProfileCard = ({data}) => {
             <ProfileFlipCard 
                 front={frontContent}
                 back={backContent}
+                userId={data.userId}
             />
         </StyledCard>
     );

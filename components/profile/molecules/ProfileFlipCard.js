@@ -5,9 +5,12 @@ import Button from '../atoms/Button';
 import LeftIcon from '@/assets/left_arrow.svg';
 import RightIcon from '@/assets/right_arrow.svg';
 import Swal from 'sweetalert2';
+import { createMatching } from '@/api/matching';
+import { useQueryClient } from '@tanstack/react-query';
 
-const ProfileFlipCard = ({front, back}) => {
+const ProfileFlipCard = ({front, back, userId}) => {
     const [isFlip, setIsFlip] = useState(false);
+    const queryClient = useQueryClient();
 
     return (
         <CardContainer>
@@ -23,12 +26,16 @@ const ProfileFlipCard = ({front, back}) => {
                 <CardFront>{front}</CardFront>
                 <CardBack>{back}</CardBack>
             </Card>
-            <Button onClick={()=>
-                Swal.fire({
+            <Button onClick={async() =>
+                {await createMatching({receiver: userId});
+                await queryClient.invalidateQueries({
+                    queryKey: ['matching']
+                }); // 강제로 재랜더링 실행
+                await Swal.fire({
                     icon: "success",
                     title: "Good Job!",
                     text: "You'll hear from your friend soon!"
-                  })
+                  })}
             }>
                 Say Hi 👋
             </Button>

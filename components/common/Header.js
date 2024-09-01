@@ -24,10 +24,10 @@ const Header = () => {
     const isLogout = useAuth((state)=> state.updateToLogout);
     const router = useRouter();  // Initialize useRouter
 
-    const logoutHandler= () =>{
+    const logoutHandler= async() => {
         isLogout(); // 상태변화
         clearAuthToken(); // 로컬스토리지 비우기
-        Swal.fire({
+        await Swal.fire({
             icon: 'success',
             title: 'Success',
             text: 'You are logged out!'

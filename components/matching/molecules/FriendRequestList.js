@@ -3,11 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 import FriendRequestItem from '../atoms/FriendRequestItem';
 
-const FriendRequestList = ({ requests }) => {
+const FriendRequestList = ({ requests , ButtonGroup}) => {
   return (
     <ListContainer>
       {requests.map((request) => (
-        <FriendRequestItem key={request.id} request={request} />
+        <FriendRequestItem key={request.id} request={request} ButtonGroup={ButtonGroup} />
       ))}
     </ListContainer>
   );

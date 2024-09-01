@@ -109,11 +109,3 @@ export async function POST(request) {
         return Response.json({status:'error', error})
     }
 }
-
-// 받은 요청의  수락하기 버튼에 대한 update
-
-// 받은 요청의 거절하기 버튼에 대한 update 
-
-// 보낸 요청의 취소하기 update 
-
-// 수락된 요청의 취소하기 update 

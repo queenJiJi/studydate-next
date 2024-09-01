@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 
-const FriendRequestItem = ({ request }) => {
+const FriendRequestItem = ({ request, ButtonGroup }) => {
   
   return (
     <ItemContainer>
@@ -14,10 +14,11 @@ const FriendRequestItem = ({ request }) => {
           <Status>{request.status}</Status>
         </RequestInfo>
       </Info>
-      <ButtonContiner>
+      {/* <ButtonContiner>
         <AcceptButton>Accept</AcceptButton>
         <RefuseButton>Decline</RefuseButton>
-      </ButtonContiner>
+      </ButtonContiner> */}
+      {ButtonGroup&&<ButtonGroup id={request.id}/>}
     </ItemContainer>
   );
 };

@@ -53,7 +53,7 @@ const LoginForm = () => {
             
             setAuthToken(data.user.accessToken);
        
-            Swal.fire({
+            await Swal.fire({
                 icon: "success",
                 title: "You're Logged In!",
               })
