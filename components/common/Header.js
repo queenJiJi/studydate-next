@@ -8,6 +8,7 @@ import { clearAuthToken, getAuthToken } from '@/lib/utils/user';
 import { useAuth } from '@/store/authStore';
 import { useRouter } from 'next/navigation';  
 import Swal from 'sweetalert2';
+import { useQueryClient } from '@tanstack/react-query';
 
 // import Icon from '@/assets/studydate_logo.png';
 // TODO: login시 profilecard- login 안했을 시 home
@@ -23,10 +24,12 @@ const Header = () => {
     const isLogged = useAuth((state)=> state.isLogin);
     const isLogout = useAuth((state)=> state.updateToLogout);
     const router = useRouter();  // Initialize useRouter
+    const queryClient = useQueryClient();
 
     const logoutHandler= async() => {
         isLogout(); // 상태변화
         clearAuthToken(); // 로컬스토리지 비우기
+        queryClient.clear(); // 캐싱된 상태 값 비우기
         await Swal.fire({
             icon: 'success',
             title: 'Success',
