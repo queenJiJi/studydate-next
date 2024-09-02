@@ -11,7 +11,10 @@ const Step1 = ({nextStep, handleChange, data}) => {
 
     return (
         <Wrapper>
-            <StepContainer>
+            <StepContainer> 
+                <Title>Let's create your Profile Card! 🎉</Title>
+                <Stage> STEP 1 / 4</Stage>
+                
                 <Label>NAME</Label>
                 <Input 
                     type='text'
@@ -42,6 +45,17 @@ const Wrapper = styled.div`
 
 `;
 
+const Title = styled.div`
+    font-weight: 800;
+    font-size: 36px; 
+`
+
+const Stage = styled.div`
+    color: #FF0000;
+    font-size: 14px;
+    margin-bottom: 20px;
+`
+
 const StepContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -57,6 +71,7 @@ const ButtonContainer = styled.div`
     display: flex;
     flex-direction: row;
     gap: 20px;
+    margin-top: 20px;
 `;
 
 export default Step1;

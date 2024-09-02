@@ -11,6 +11,9 @@ const Step3 = ({prevStep, nextStep, handleChange, data}) => {
 
     return (
         <StepContainer>
+            <Title>We'll find your study mate! 👯‍♀️</Title>
+            <Stage> STEP 3 / 4</Stage>
+
             <Label>GRADE </Label>
             <Input
                 type='text'
@@ -50,10 +53,22 @@ const StepContainer = styled.div`
     min-height: 200px;
 `;
 
+const Title = styled.div`
+    font-weight: 800;
+    font-size: 36px; 
+`
+
+const Stage = styled.div`
+    color: #FF0000;
+    font-size: 14px;
+    margin-bottom: 20px;
+`
+
 const ButtonContainer = styled.div`
     display: flex;
     flex-direction: row;
     gap: 20px;
+    margin-top: 20px;
 `
 
 export default Step3;

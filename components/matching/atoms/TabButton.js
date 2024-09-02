@@ -12,7 +12,9 @@ const TabButton = ({ active, onClick, children }) => {
 
 const Button = styled.button`
   width: 100%;
-  padding: 10px 20px;
+  height: 40px;
+  padding: 5px 20px;
+  font-size: 18px;
   margin: 0 5px;
   border: none;
   background-color: ${({ active }) => (active ? 'black' : '#e0e0e0')};

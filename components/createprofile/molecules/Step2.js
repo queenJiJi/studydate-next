@@ -12,6 +12,9 @@ const Step2 = ({prevStep, nextStep, handleChange, data}) => {
     return (
         <Wrapper>
             <StepContainer>
+                <Title>Please tell us about yourself 🧐</Title>
+                <Stage> STEP 2 / 4</Stage>
+
                 <Label>INTRODUCTION</Label>
                 <ContentBox>
                     <TextArea 
@@ -47,6 +50,17 @@ const StepContainer = styled.div`
     min-height: 200px;
 `;
 
+const Title = styled.div`
+    font-weight: 800;
+    font-size: 36px; 
+`
+
+const Stage = styled.div`
+    color: #FF0000;
+    font-size: 14px;
+    margin-bottom: 20px;
+`
+
 const ContentBox = styled.div`
     width: 100%;
     height: 100%;
@@ -68,6 +82,7 @@ const TextArea = styled.textarea`
 const ButtonContainer = styled.div`
     display: flex;
     gap: 20px;
+    margin-top: 20px;
 `
 
 export default Step2;

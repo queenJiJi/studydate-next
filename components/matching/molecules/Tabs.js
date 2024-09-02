@@ -8,13 +8,13 @@ const Tabs = ({ activeTab, setActiveTab }) => {
   return (
     <TabsContainer>
       <TabButton active={activeTab === 'received'} onClick={() => setActiveTab('received')}>
-        받은 요청
+        Received requests 
       </TabButton>
       <TabButton active={activeTab === 'sent'} onClick={() => setActiveTab('sent')}>
-        보낸 요청
+        Sent requests
       </TabButton>
       <TabButton active={activeTab === 'accepted'} onClick={() => setActiveTab('accepted')}>
-        수락된 요청
+        Accepted requests
       </TabButton>
     </TabsContainer>
   );

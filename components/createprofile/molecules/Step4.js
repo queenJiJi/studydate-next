@@ -30,6 +30,10 @@ const Step4 = ({prevStep, nextStep, handleImagePreview, handleChange, data}) => 
 
     return (
         <StepContainer>
+            <Title>It's all done!</Title>
+            <Title>We can match you with your ideal type! 🖤</Title>
+            <Stage> STEP 4 / 4</Stage>
+
             <Label>IDEAL TYPE </Label>
             <Input
                 type='text'
@@ -58,10 +62,22 @@ const StepContainer = styled.div`
     justify-content: center;
 `;
 
+const Title = styled.div`
+    font-weight: 800;
+    font-size: 36px; 
+`
+
+const Stage = styled.div`
+    color: #FF0000;
+    font-size: 14px;
+    margin-bottom: 20px;
+`
+
 const ButtonContainer = styled.div`
     display: flex;
     flex-direction: row;
     gap: 20px;
+    margin-top: 20px;
 `
 
 export default Step4;
