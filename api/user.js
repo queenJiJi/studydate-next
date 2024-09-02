@@ -1,5 +1,6 @@
 // instance토대로 login관련된 내용(id,pw)을 서버로 보내고 응답을 받는 파일
 import apiClient from './base'; // base.js에서 instance로 받아온 것임. 즉, apiClient = instance
+import { webHookURL } from '@/lib/slack';
 
 /**
  * 
@@ -26,3 +27,20 @@ export const signup = async(email,firebase_id) => {
 
     return response.data //성공적으로 BE에 요청보냈다면, reponse: 'ok'를 돌려받을것이고, 그 정보가 저장된게 response.data
 }
+
+export const connectingSlack = async(message) => {
+    try {
+        const webhookurl = `https://cors-anywhere.herokuapp.com/${process.env.NEXT_PUBLIC_SLACK_WEBHOOK_URL}`
+        // const webhookUrl = "https://cors-anywhere.herokuapp.com/"+webHookURL;
+        const response = await apiClient.post(webhookurl, {
+            text: `New login: ${message} just logged in!`
+        });
+        if (response.status === 200) {
+            console.log('Slack notification sent successfully');
+        } else {
+            console.log('Failed to send Slack notification:', response.status);
+        }
+    } catch (error) {
+        console.error('Error sending Slack notification:', error);
+    }
+};

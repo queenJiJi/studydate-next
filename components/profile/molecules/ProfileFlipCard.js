@@ -7,11 +7,38 @@ import RightIcon from '@/assets/right_arrow.svg';
 import Swal from 'sweetalert2';
 import { createMatching } from '@/api/matching';
 import { useQueryClient } from '@tanstack/react-query';
+import { useAuth } from '@/store/authStore';
+import { useRouter } from 'next/navigation';
 
 const ProfileFlipCard = ({front, back, userId}) => {
     const [isFlip, setIsFlip] = useState(false);
-    const queryClient = useQueryClient();
+    const isLogged = useAuth((state)=> state.isLogin);
+    const router = useRouter();
+    const queryClient = useQueryClient();   
 
+    const sayHiHander = async()=>{
+        if(isLogged) {
+            await createMatching({receiver: userId}); // 매칭 신청
+            await queryClient.invalidateQueries({
+                queryKey: ['matching']
+            }); // 강제로 재랜더링 실행
+            await Swal.fire({
+                icon: "success",
+                title: "Good Job!",
+                text: "You'll hear from your friend soon!"
+                })}
+        else { // 로그인이 되어있지 않은 상태일때
+            await Swal.fire({
+                icon: 'warning',
+                title: 'Hi👋',
+                text: 'Please Log in or Sign up First!',
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    router.push('/login');}
+            })
+        }
+    }
     return (
         <CardContainer>
             <ButtonContainer>
@@ -26,17 +53,7 @@ const ProfileFlipCard = ({front, back, userId}) => {
                 <CardFront>{front}</CardFront>
                 <CardBack>{back}</CardBack>
             </Card>
-            <Button onClick={async() =>
-                {await createMatching({receiver: userId});
-                await queryClient.invalidateQueries({
-                    queryKey: ['matching']
-                }); // 강제로 재랜더링 실행
-                await Swal.fire({
-                    icon: "success",
-                    title: "Good Job!",
-                    text: "You'll hear from your friend soon!"
-                  })}
-            }>
+            <Button onClick={sayHiHander}>
                 Say Hi 👋
             </Button>
         </CardContainer>

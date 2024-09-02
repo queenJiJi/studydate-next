@@ -7,16 +7,13 @@ import * as yup from "yup";
 // import { useNavigate } from 'react-router-dom';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { login } from '../../../api/user';
+import { connectingSlack, login } from '../../../api/user';
 import { setAuthToken } from '@/lib/utils/user';
 import { authService } from '@/lib/firebase';
 import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from 'firebase/auth';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 import FormField from '../molecules/FormField';
 import Button from '../atoms/Button';
 import { useAuth } from '@/store/authStore';
-
 import Swal from 'sweetalert2';
 
 
@@ -59,6 +56,8 @@ const LoginForm = () => {
               })
             updateToLogin({email:data.user.email, firebaseId: data.user.uid}); // 로그인 상태 변경
             router.push('/mainprofile');
+            // console.log('data', data);
+            await connectingSlack(data.user.email);
         } catch(error) {
             let errorMessage = 'Login failed.';
             switch (error.code) {
