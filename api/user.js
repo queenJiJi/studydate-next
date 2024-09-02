@@ -30,9 +30,9 @@ export const signup = async(email,firebase_id) => {
 
 export const connectingSlack = async(message) => {
     try {
-        const webhookurl = `https://cors-anywhere.herokuapp.com/${process.env.NEXT_PUBLIC_SLACK_WEBHOOK_URL}`
+        // const webhookurl = `https://cors-anywhere.herokuapp.com/${process.env.NEXT_PUBLIC_SLACK_WEBHOOK_URL}`
         // const webhookUrl = "https://cors-anywhere.herokuapp.com/"+webHookURL;
-        const response = await apiClient.post(webhookurl, {
+        const response = await apiClient.post(webHookURL, {
             text: `New login: ${message} just logged in!`
         });
         if (response.status === 200) {
