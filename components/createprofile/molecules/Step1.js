@@ -12,9 +12,9 @@ const Step1 = ({nextStep, handleChange, data}) => {
     return (
         <Wrapper>
             <StepContainer> 
-                <Title>Let's create your Profile Card! 🎉</Title>
+                <Title>Let&apos;s create your Profile Card! 🎉</Title>
                 <Stage> STEP 1 / 4</Stage>
-                
+
                 <Label>NAME</Label>
                 <Input 
                     type='text'

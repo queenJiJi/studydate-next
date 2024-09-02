@@ -11,7 +11,7 @@ const Step3 = ({prevStep, nextStep, handleChange, data}) => {
 
     return (
         <StepContainer>
-            <Title>We'll find your study mate! 👯‍♀️</Title>
+            <Title>We&apos;ll find your study mate! 👯‍♀️</Title>
             <Stage> STEP 3 / 4</Stage>
 
             <Label>GRADE </Label>

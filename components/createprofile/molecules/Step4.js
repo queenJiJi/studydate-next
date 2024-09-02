@@ -30,7 +30,7 @@ const Step4 = ({prevStep, nextStep, handleImagePreview, handleChange, data}) => 
 
     return (
         <StepContainer>
-            <Title>It's all done!</Title>
+            <Title>It&apos;s all done!</Title>
             <Title>We can match you with your ideal type! 🖤</Title>
             <Stage> STEP 4 / 4</Stage>
 

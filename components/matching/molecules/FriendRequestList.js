@@ -9,7 +9,7 @@ const FriendRequestList = ({ requests , ButtonGroup}) => {
     <ListContainer>
       {requests.length!=0? requests.map((request) => (
         <FriendRequestItem key={request.id} request={request} ButtonGroup={ButtonGroup} />
-      )): <EmptyContainer>You don't have any requests yet 🫥</EmptyContainer>}
+      )): <EmptyContainer>You don&apos;t have any requests yet 🫥</EmptyContainer>}
     </ListContainer>
   );
 };
