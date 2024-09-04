@@ -26,6 +26,28 @@ async function saveFile(file) {
     return `/images/${uuidFileName}`; // DB에 넣어주기위한 경로
 }
 
+async function saveFileToFirebase(file) { //firebase storage에 이미지를 저장하는 코드
+    const storageRef = admin.storage().bucket(); // 버킷 변수 생성
+
+    // Generate a unique file name using UUID and preserve the file extension -- UUID 알고리즘(파일명이 절대 겹치지 않게함)
+    const fileExtension = path.extname(file.name);
+    const uuidFileName = `${uuidv4()}${fileExtension}`; // UUID라는 알고리즘으로 새로운 랜덤한 이름을 생성
+
+    const fileRef = storageRef.file(uuidFileName); // 위에서 설정한 이름으로 새로운 파일을 만들겠다~
+
+    // Read the file data
+    const fileData = Buffer.from(await file.arrayBuffer()); // user로부터 받은 파일을 변환
+    
+    //bucket에 파일을 저장
+    const uploadTask = fileRef.save(fileData);
+    await uploadTask;
+    const urlResponse = await fileRef.getSignedUrl({ // 이미지 url을 새로 설정 
+        action: 'read',
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 365 // 1년뒤 만료 - 이미지에 대한 보안상의 이유로 이미지마다 토큰을 발급해주는데, 그 토큰의 유효기간을 1년으로 설정 
+    });
+    return urlResponse[0];
+}
+
 export async function POST(request) {
     // 토큰을 추출해서 verify & decode - 로그인이 된 경우에만 profile을 생성할 수 있어야하니까
     
@@ -50,7 +72,8 @@ export async function POST(request) {
         // console.log(form.get('test'))
 
         const img = form.get('img');
-        const imgPath = await saveFile(img);
+        // const imgPath = await saveFile(img);
+        const imgPath = await saveFileToFirebase(img); // 이미지를 서버에 저장
     
         const result = await sql`INSERT INTO "Profile"
         (user_id, dream, introduction, grade, major, concern, ideal_type, img, name)
