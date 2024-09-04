@@ -57,7 +57,7 @@ const LoginForm = () => {
             updateToLogin({email:data.user.email, firebaseId: data.user.uid}); // 로그인 상태 변경
             router.push('/mainprofile');
             // console.log('data', data);
-            // await connectingSlack(data.user.email);
+            await connectingSlack(data.user.email);
         } catch(error) {
             let errorMessage = 'Login failed.';
             switch (error.code) {
