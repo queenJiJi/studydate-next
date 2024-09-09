@@ -1,24 +1,32 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
 import Button from './Button';
 
 const FriendRequestItem = ({ request, ButtonGroup }) => {
-  
   return (
     <ItemContainer>
       <Info>
-        <ProfileImage src={request.profileImage} alt={`${request.name}'s profile`} />
+        {/* 이미지를 Next.js의 Image 컴포넌트로 변경 */}
+        <ProfileImageWrapper>
+          <Image
+            src={request.profileImage}
+            alt={`${request.name}'s profile`}
+            width={50}
+            height={50}
+            unoptimized={true} // 로컬 이미지나 CDN이 아닌 경우 사용
+
+            // objectFit="cover" // 이미지 비율 유지
+            // style={{ borderRadius: '50%' }} // Next/Image는 style에 borderRadius를 직접 적용할 수 없으므로 아래에서 처리
+          />
+        </ProfileImageWrapper>
         <RequestInfo>
           <Name>{request.name}</Name>
           <Status>{request.status}</Status>
         </RequestInfo>
       </Info>
-      {/* <ButtonContiner>
-        <AcceptButton>Accept</AcceptButton>
-        <RefuseButton>Decline</RefuseButton>
-      </ButtonContiner> */}
-      {ButtonGroup&&<ButtonGroup id={request.id}/>}
+      {ButtonGroup && <ButtonGroup id={request.id}/>}
     </ItemContainer>
   );
 };
@@ -35,10 +43,12 @@ const Info = styled.div`
   display: flex;
 `;
 
-const ProfileImage = styled.img`
+// ProfileImageWrapper를 추가하여 Image 컴포넌트를 스타일링합니다.
+const ProfileImageWrapper = styled.div`
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 50%; // borderRadius 적용
+  overflow: hidden; // borderRadius 효과를 위해 overflow를 hidden으로 설정
   margin-right: 10px;
 `;
 
@@ -55,25 +65,26 @@ const Status = styled.div`
   color: gray;
 `;
 
-const ButtonContiner = styled.div`
-  display: flex;
-`;
 
-const AcceptButton = styled(Button)`
-  background-color: #3ebd3e;
-  margin-right: 30px;
+// const ButtonContiner = styled.div`
+//   display: flex;
+// `;
 
-  &:hover {
-    background-color: green;
-  }
-`;
+// const AcceptButton = styled(Button)`
+//   background-color: #3ebd3e;
+//   margin-right: 30px;
 
-const RefuseButton = styled(Button)`
-  background-color: #f7283e;
+//   &:hover {
+//     background-color: green;
+//   }
+// `;
 
-  &:hover {
-    background-color: #db0017;
-  }
-`;
+// const RefuseButton = styled(Button)`
+//   background-color: #f7283e;
+
+//   &:hover {
+//     background-color: #db0017;
+//   }
+// `;
 
 export default FriendRequestItem;

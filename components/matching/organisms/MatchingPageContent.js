@@ -1,5 +1,5 @@
 'use client';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Tabs from '../molecules/Tabs';
 import FriendRequestList from '../molecules/FriendRequestList';
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import Button from '@/components/matching/atoms/Button';
 import { readMatching, updateMatching } from '@/api/matching';
 import { useAuth } from '@/store/authStore';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-
+import { sendSlack } from '@/api/user';
 
 const MatchingPageContent = () => {
     const [activeTab, setActiveTab] = useState('received');
@@ -17,6 +17,11 @@ const MatchingPageContent = () => {
         queryFn: readMatching, 
         staleTime: 1000 * 60, // 어느 정도 시간이 흐른 이후에 데이터를 다시 가져올 것인지 (ms라 1000 * 60 = 60초)
     })
+
+    // useEffect(async()=>{
+    //     console.log(data)
+    //     // await sendSlack(data.user.email);
+    // },[data])
 
     if(isPending) <div>Loading...</div> //TODO: loading bar로 바꿔주기
 
