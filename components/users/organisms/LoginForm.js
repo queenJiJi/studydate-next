@@ -15,7 +15,7 @@ import FormField from '../molecules/FormField';
 import Button from '../atoms/Button';
 import { useAuth } from '@/store/authStore';
 import Swal from 'sweetalert2';
-
+import { sendSlack } from '../../../api/user';
 
 const schema = yup.object().shape({
     id: yup.string().email('Invalid email address').required('Email is required'),
@@ -57,7 +57,8 @@ const LoginForm = () => {
             updateToLogin({email:data.user.email, firebaseId: data.user.uid}); // 로그인 상태 변경
             router.push('/mainprofile');
             // console.log('data', data);
-            await connectingSlack(data.user.email); //slack
+            // await connectingSlack(data.user.email); //slack
+            await sendSlack(data.user.email);
         } catch(error) {
             let errorMessage = 'Login failed.';
             switch (error.code) {

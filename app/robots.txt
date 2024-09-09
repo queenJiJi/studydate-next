@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /private/
+
+Sitemap: https://peppy-concha-6e5c58.netlify.app/sitemap.xml

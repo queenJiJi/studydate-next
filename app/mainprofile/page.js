@@ -37,9 +37,9 @@ const Profile = () => {
     })
 
     // data fetching시 -> 로딩 처리, 에러 처리 필수
-    if (isPending) {
-        return <div>Loading...</div>
-    }
+    // if (isPending) {
+    //     return <div>Loading...</div>
+    // }
 
     if (isError) {
         return <div>Fetching Error...</div>
@@ -47,11 +47,17 @@ const Profile = () => {
 
     return (
         <>
-            <ProfileList data={data} />
+            <ProfileHeader>PROFILE LIST</ProfileHeader>
+            {
+                isPending? (<div>Loading...</div>): (<ProfileList data={data} />)
+            }
         </>
     );
 };
 
-
+const ProfileHeader = styled.h1`
+    text-align: center;
+    margin: 20px 0;
+`;
 
 export default Profile;
