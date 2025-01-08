@@ -42,14 +42,14 @@ const Profile = () => {
     // }
 
     if (isError) {
-        return <div>Fetching Error...</div>
+        return <div>Fetching Error...!</div>
     }
 
     return (
         <>
             <ProfileHeader>PROFILE LIST</ProfileHeader>
             {
-                isPending? (<div>Loading...</div>): (<ProfileList data={data} />)
+                isPending? (<div>Loading......</div>): (<ProfileList data={data} />)
             }
         </>
     );
