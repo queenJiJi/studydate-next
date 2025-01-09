@@ -7,6 +7,8 @@ import ProfileCard from '@/components/profile/organisms/ProfileCard';
 import { useRouter } from 'next/navigation';
 import { createProfile } from '@/api/profile';
 import { useMutation } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
+
 
 const StepFinal = ({prevStep, imagePreview, handleChange, data}) => {
     const router = useRouter();
@@ -15,9 +17,25 @@ const StepFinal = ({prevStep, imagePreview, handleChange, data}) => {
     const {mutate, isPending, isError} = useMutation({
         mutationFn: createProfile,
         onSuccess: () => { // createProfile에 성공했을 시
-            router.push('/mainprofile');
+            // 성공 시 알림
+            Swal.fire({
+                icon: 'success',
+                title: 'Profile Created!',
+                text: 'Your profile has been successfully created.',
+                confirmButtonText: 'OK',
+            }).then(() => {
+                router.push('/mainprofile');
+            });
+            // router.push('/mainprofile');
         },
         onError: (error) => { // createProfile에 실패했을 시
+            // 실패 시 알림
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Failed to create your profile. Please try again later.',
+                confirmButtonText: 'OK',
+            });
             console.error('failed to create profile:',error);
         }
     })
