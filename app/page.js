@@ -92,4 +92,5 @@ const StyledButton = styled.div`
   justify-content: center;
   font-weight: 800;
   font-size: 24px;
+  cursor: pointer;
 `;
