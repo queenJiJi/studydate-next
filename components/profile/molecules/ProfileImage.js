@@ -1,14 +1,15 @@
 'use client';
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 const ProfileImage = ({src, alt}) => {
     
     return (
         // <StyledImage src={src} alt={alt} />
         <ImageWrapper>
-            <Image
+            {/* <Image */}
+            <StyledImage
                 src={src}
                 alt={alt}
                 width={160}  // 이미지 너비 설정
